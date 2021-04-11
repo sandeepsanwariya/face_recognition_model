@@ -19,6 +19,10 @@ while True:
     if get_face(img) is not None:
         cout=cout+1
         face=cv2.resize(get_face(img),(400,400))
+        if cout>500:
+            file_path='./Dataset/test/sandeep'+str(cout)+'.jpg'
+        elif cout<=500:
+            file_path = './Dataset/train/sandeep' + str(cout) + '.jpg'
         file_path='./Dataset/test/'+str(cout)+'.jpg'
         cv2.imwrite(file_path,face)
         cv2.putText(face,str(cout),(50,50),cv2.FONT_HERSHEY_COMPLEX,1,(0,255,0),2)
